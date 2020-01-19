@@ -87,6 +87,14 @@ const runComparison = () => {
       rightStat.classList.remove("is-primary");
       rightStat.classList.add("is-danger");
     }
+
+    if (isNaN(rightSideValue)) {
+      rightStat.classList.remove("is-primary");
+      rightStat.classList.add("is-warning");
+    } else if (isNaN(leftSideValue)) {
+      leftStat.classList.remove("is-primary");
+      leftStat.classList.add("is-warning");
+    }
   });
 };
 
