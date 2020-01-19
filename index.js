@@ -80,21 +80,21 @@ const runComparison = () => {
     const leftSideValue = parseInt(leftStat.dataset.value);
     const rightSideValue = parseInt(rightStat.dataset.value);
 
+    // Refresh all element colors
+    rightStat.classList.remove("is-primary");
+    rightStat.classList.remove("is-danger");
+    rightStat.classList.remove("is-warning");
+    leftStat.classList.remove("is-primary");
+    leftStat.classList.remove("is-danger");
+    leftStat.classList.remove("is-warning");
+
     if (rightSideValue > leftSideValue) {
-      leftStat.classList.remove("is-warning");
-      leftStat.classList.remove("is-primary");
       leftStat.classList.add("is-danger");
       rightStat.classList.add("is-primary");
     } else if (rightSideValue < leftSideValue) {
-      rightStat.classList.remove("is-warning");
-      rightStat.classList.remove("is-primary");
       rightStat.classList.add("is-danger");
       leftStat.classList.add("is-primary");
-    } else {
-      rightStat.classList.remove("is-primary");
-      leftStat.classList.remove("is-primary");
-      rightStat.classList.remove("is-danger");
-      leftStat.classList.remove("is-danger");
+    } else if (rightSideValue === leftSideValue) {
       rightStat.classList.add("is-warning");
       leftStat.classList.add("is-warning");
     }
@@ -103,10 +103,12 @@ const runComparison = () => {
       rightStat.classList.remove("is-primary");
       rightStat.classList.remove("is-danger");
       rightStat.classList.remove("is-warning");
+      leftStat.classList.add("is-primary");
     } else if (isNaN(leftSideValue)) {
       leftStat.classList.remove("is-primary");
       leftStat.classList.remove("is-danger");
       leftStat.classList.remove("is-warning");
+      rightStat.classList.add("is-primary");
     }
   });
 };
